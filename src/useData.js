@@ -7,8 +7,8 @@ export const useData = () => {
 
   useEffect(() => {
     const row = d => {
-      d.Major = +d.Major;
-      d.Major_category = +d.Major_category;
+      //d.Major = +d.Major;
+      //d.Major_category = +d.Major_category;
       d.Median = +d.Median;
       d.Share_women = +d.Share_women;
       return d;
