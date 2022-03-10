@@ -8,6 +8,7 @@ import { useData } from './useData';
 import { AxisBottom } from './AxisBottom';
 import { AxisLeft } from './AxisLeft';
 import Marks from './Marks';
+import Filter from './Filter'
 
 const width = 960;
 const height = 500;
@@ -54,6 +55,7 @@ const ScatterPlot = () => {
     .range([innerHeight, 0]);
 
   return (
+    <div>
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left},${margin.top})`}>
         <AxisBottom
@@ -98,6 +100,10 @@ const ScatterPlot = () => {
         />
       </g>
     </svg>
+    <Filter
+      data = {data}/>
+    </div>
+
   );
 };
 
