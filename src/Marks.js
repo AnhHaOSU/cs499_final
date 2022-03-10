@@ -17,6 +17,7 @@ function Marks({ data, xScale, yScale, xValue, yValue, tooltipFormat, circleRadi
       setIsOpen(true);
     }
 
+
     const modalStyle = {
         overlay: { 
           backgroundColor: "grey",
@@ -41,7 +42,7 @@ function Marks({ data, xScale, yScale, xValue, yValue, tooltipFormat, circleRadi
     return (
       data.map(d => (
         <>
-        <circle key={d.Major_code} className="mark" cx={xScale(xValue(d))} cy={yScale(yValue(d))} r={circleRadius} fill="blue" fillOpacity="30%" stroke="blue" strokeOpacity="100%" onClick={() => openModal(d)}>
+        <circle class= "circle" id = {d.Major_code} key={d.Major_code} className="mark" cx={xScale(xValue(d))} cy={yScale(yValue(d))} r={circleRadius} fill="blue" fillOpacity="30%" stroke="blue" strokeOpacity="100%" onClick={() => openModal(d)}>
           <title>{tooltipFormat(xValue(d))}</title>
         </circle>
   
