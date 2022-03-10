@@ -28,7 +28,7 @@ function Marks({ data, xScale, yScale, xValue, yValue, tooltipFormat, circleRadi
           top: '100px',
           left: '30%',
           right: '30%',
-          bottom: '950px',
+          bottom: '70',
           border: '1px solid #ccc',
           background: '#fff',
           overflow: 'auto',
@@ -38,6 +38,16 @@ function Marks({ data, xScale, yScale, xValue, yValue, tooltipFormat, circleRadi
           padding: '20px'
         }
     }
+
+    let unique_categories = []
+
+    for (var i = 0; i < data.length; i++){
+      if (!unique_categories.includes(data[i].Major_category)){
+        unique_categories.push(data[i].Major_category);
+      }
+    }
+
+    console.log(unique_categories);
       
     return (
       data.map(d => (
@@ -45,12 +55,11 @@ function Marks({ data, xScale, yScale, xValue, yValue, tooltipFormat, circleRadi
         <circle class= "circle" id = {d.Major_code} key={d.Major_code} className="mark" cx={xScale(xValue(d))} cy={yScale(yValue(d))} r={circleRadius} fill="blue" fillOpacity="30%" stroke="blue" strokeOpacity="100%" onClick={() => openModal(d)}>
           <title>{tooltipFormat(xValue(d))}</title>
         </circle>
-  
         <Modal transparent={false} style={modalStyle} isOpen={isOpen} onRequestClose={closeModal} shouldCloseOnOverlayClick={true} contentLabel="My dialog">
             <div>Major: {currentMajor.Major}</div>
             <div>Major Category: {currentMajor.Major_category}</div>
             <div>Percentage of Women: {(currentMajor.ShareWomen * 100).toFixed(2)}%</div>
-            <div>Median Salary: {currentMajor.Median}</div>
+            <div>Median Salary: ${currentMajor.Median}</div>
             <p/>
             <button onClick={closeModal}>Close</button>
         </Modal>       
