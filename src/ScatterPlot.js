@@ -28,10 +28,10 @@ const ScatterPlot = () => {
 
   const xValue = d => d.ShareWomen;
   // console.log(data);
-  const xAxisLabel = 'Share Women';
+  const xAxisLabel = 'Percentage of Women in Major';
 
   const yValue = d => d.Median;
-  const yAxisLabel = 'Median Earning';
+  const yAxisLabel = 'Median Income';
 
   const siFormat = format(",.0%");
   const xAxisTickFormat = tickValue => siFormat(tickValue).replace('G', 'B');
